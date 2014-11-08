@@ -52,11 +52,11 @@ ActiveRecord::Schema.define(version: 20141108193359) do
     t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "artist_id"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.integer  "artist_id"
   end
 
   add_index "artworks", ["artist_id"], name: "index_artworks_on_artist_id", using: :btree
