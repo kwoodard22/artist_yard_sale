@@ -1,20 +1,62 @@
 class MediaController < ApplicationController
   before_action :set_medium, only: [:show, :edit, :update, :destroy]
 
+<<<<<<< HEAD
+=======
+  # GET /media
+  # GET /media.json
+>>>>>>> 3f7e438d041aebf3e21d7802858f037114a61773
   def index
     @media = Medium.all
   end
 
+<<<<<<< HEAD
   def show
+    respond_with(@medium)
   end
 
   def new
     @medium = Medium.new
+    respond_with(@medium)
   end
 
   def edit
   end
 
+  def create
+    @medium = Medium.new(medium_params)
+    @medium.save
+    respond_with(@medium)
+  end
+
+  def update
+    @medium.update(medium_params)
+    respond_with(@medium)
+  end
+
+  def destroy
+    @medium.destroy
+    respond_with(@medium)
+  end
+
+  private
+=======
+  # GET /media/1
+  # GET /media/1.json
+  def show
+  end
+
+  # GET /media/new
+  def new
+    @medium = Medium.new
+  end
+
+  # GET /media/1/edit
+  def edit
+  end
+
+  # POST /media
+  # POST /media.json
   def create
     @medium = Medium.new(medium_params)
 
@@ -29,6 +71,8 @@ class MediaController < ApplicationController
     end
   end
 
+  # PATCH/PUT /media/1
+  # PATCH/PUT /media/1.json
   def update
     respond_to do |format|
       if @medium.update(medium_params)
@@ -41,6 +85,8 @@ class MediaController < ApplicationController
     end
   end
 
+  # DELETE /media/1
+  # DELETE /media/1.json
   def destroy
     @medium.destroy
     respond_to do |format|
@@ -50,10 +96,16 @@ class MediaController < ApplicationController
   end
 
   private
+    # Use callbacks to share common setup or constraints between actions.
+>>>>>>> 3f7e438d041aebf3e21d7802858f037114a61773
     def set_medium
       @medium = Medium.find(params[:id])
     end
 
+<<<<<<< HEAD
+=======
+    # Never trust parameters from the scary internet, only allow the white list through.
+>>>>>>> 3f7e438d041aebf3e21d7802858f037114a61773
     def medium_params
       params.require(:medium).permit(:type, :artwork_id, :supply_id)
     end

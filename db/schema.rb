@@ -47,7 +47,10 @@ ActiveRecord::Schema.define(version: 20141108164651) do
     t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "artist_id"
   end
+
+  add_index "artworks", ["artist_id"], name: "index_artworks_on_artist_id", using: :btree
 
   create_table "media", force: true do |t|
     t.string   "type"
@@ -68,6 +71,9 @@ ActiveRecord::Schema.define(version: 20141108164651) do
     t.string   "condition"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "artist_id"
   end
+
+  add_index "supplies", ["artist_id"], name: "index_supplies_on_artist_id", using: :btree
 
 end
