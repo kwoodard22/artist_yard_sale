@@ -14,21 +14,21 @@ Artwork
 - Title: string
 - Description: string
 - Photo: string
-- Medium: string
 - Pickup_only: boolean
 - Price: float
 - Dimensions: string
 - Color: string
 
-Medium
-- Type: string
-
 Supplies
 - Title: string
-- Medium: string
 - Color: string
 - Price: float
 - Description: string
+- Condition: string
 
+Medium
+- Type: string
+- Artwork_id: integer
+- Supply_id: integer
 
 

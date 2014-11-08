@@ -1,0 +1,33 @@
+<h1>Listing supplies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Color</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Condition</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @supplies.each do |supply| %>
+      <tr>
+        <td><%= supply.title %></td>
+        <td><%= supply.color %></td>
+        <td><%= supply.price %></td>
+        <td><%= supply.description %></td>
+        <td><%= supply.condition %></td>
+        <td><%= link_to 'Show', supply %></td>
+        <td><%= link_to 'Edit', edit_supply_path(supply) %></td>
+        <td><%= link_to 'Destroy', supply, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Supply', new_supply_path %>
