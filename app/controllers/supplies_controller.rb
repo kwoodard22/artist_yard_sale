@@ -25,7 +25,7 @@ class SuppliesController < ApplicationController
     respond_to do |format|
       if @supply.save
         format.html { redirect_to @supply, notice: 'Supply was successfully created.' }
-        format.json { render :show, status: :created, location: @supply }
+        format.json { render :show, status: :created, address: @supply }
       else
         format.html { render :new }
         format.json { render json: @supply.errors, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class SuppliesController < ApplicationController
     respond_to do |format|
       if @supply.update(supply_params)
         format.html { redirect_to @supply, notice: 'Supply was successfully updated.' }
-        format.json { render :show, status: :ok, location: @supply }
+        format.json { render :show, status: :ok, address: @supply }
       else
         format.html { render :edit }
         format.json { render json: @supply.errors, status: :unprocessable_entity }
@@ -65,6 +65,6 @@ class SuppliesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def supply_params
-      params.require(:supply).permit(:title, :color, :price, :description, :condition)
+      params.require(:supply).permit(:title, :color, :price, :description, :condition, :photo)
     end
 end

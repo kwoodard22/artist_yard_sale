@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= image_tag @artist.photo.url %>
+
 <p>
   <strong>Username:</strong>
   <%= @artist.username %>
@@ -20,10 +22,6 @@
   <%= @artist.bio %>
 </p>
 
-<p>
-  <strong>Photo:</strong>
-  <%= @artist.photo %>
-</p>
 
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
 <%= link_to 'Back', artists_path %>

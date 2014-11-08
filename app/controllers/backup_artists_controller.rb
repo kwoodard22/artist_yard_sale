@@ -1,4 +1,6 @@
 class ArtistsController < ApplicationController
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
 
   # GET /artists
@@ -29,7 +31,7 @@ class ArtistsController < ApplicationController
     respond_to do |format|
       if @artist.save
         format.html { redirect_to @artist, notice: 'Artist was successfully created.' }
-        format.json { render :show, status: :created, location: @artist }
+        format.json { render :show, status: :created, address: @artist }
       else
         format.html { render :new }
         format.json { render json: @artist.errors, status: :unprocessable_entity }
@@ -43,7 +45,7 @@ class ArtistsController < ApplicationController
     respond_to do |format|
       if @artist.update(artist_params)
         format.html { redirect_to @artist, notice: 'Artist was successfully updated.' }
-        format.json { render :show, status: :ok, location: @artist }
+        format.json { render :show, status: :ok, address: @artist }
       else
         format.html { render :edit }
         format.json { render json: @artist.errors, status: :unprocessable_entity }

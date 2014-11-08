@@ -15,7 +15,7 @@
 
 <p>
   <strong>Photo:</strong>
-  <%= @artwork.photo %>
+  <%= image_tag @artwork.photo.url %>
 </p>
 
 <p>
@@ -38,7 +38,9 @@
   <%= @artwork.color %>
 </p>
 
-<%= link_to 'Edit', edit_artwork_path(@artwork) %> |
+<% if @artwork.artist == current_artist %>
+<%= link_to 'Edit', edit_artwork_path(@artwork) %>
+<% end %>|
 <%= link_to 'Back', artworks_path %>
 </div>
 

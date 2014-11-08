@@ -11,7 +11,6 @@
     <tr>
       <th>Title</th>
       <th>Description</th>
-      <th>Photo</th>
       <th>Pickup only</th>
       <th>Price</th>
       <th>Dimensions</th>
@@ -25,14 +24,16 @@
       <tr>
         <td><%= artwork.title %></td>
         <td><%= artwork.description %></td>
-        <td><%= artwork.photo %></td>
         <td><%= artwork.pickup_only %></td>
         <td><%= artwork.price %></td>
         <td><%= artwork.dimensions %></td>
         <td><%= artwork.color %></td>
+
         <td><%= link_to 'Show', artwork %></td>
-        <td><%= link_to 'Edit', edit_artwork_path(artwork) %></td>
-        <td><%= link_to 'Destroy', artwork, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if artwork.artist == current_artist %>
+          <td><%= link_to 'Edit', edit_artwork_path(artwork) %></td>
+          <td><%= link_to 'Destroy', artwork, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -45,3 +46,8 @@
 </div>
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="/assets/masonry.pkgd.min.js"></script>
+<% if artist_signed_in? %>
+  <%= link_to 'New Artwork', new_artwork_path %>
+<% end %>
+
+
