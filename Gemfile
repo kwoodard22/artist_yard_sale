@@ -28,6 +28,7 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+gem 'paperclip', "~> 4.2"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
