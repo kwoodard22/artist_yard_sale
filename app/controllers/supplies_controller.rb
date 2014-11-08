@@ -40,6 +40,6 @@ class SuppliesController < ApplicationController
     end
 
     def supply_params
-      params.require(:supply).permit(:title, :color, :price, :description, :condition)
+      params.require(:supply).permit(:title, :color, :price, :description, :condition, :photo)
     end
 end
