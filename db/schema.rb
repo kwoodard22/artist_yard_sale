@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141108024141) do
+ActiveRecord::Schema.define(version: 20141108134635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,7 +36,10 @@ ActiveRecord::Schema.define(version: 20141108024141) do
     t.string   "color"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "artist_id"
   end
+
+  add_index "artworks", ["artist_id"], name: "index_artworks_on_artist_id", using: :btree
 
   create_table "media", force: true do |t|
     t.string   "type"
@@ -57,6 +60,9 @@ ActiveRecord::Schema.define(version: 20141108024141) do
     t.string   "condition"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "artist_id"
   end
+
+  add_index "supplies", ["artist_id"], name: "index_supplies_on_artist_id", using: :btree
 
 end
