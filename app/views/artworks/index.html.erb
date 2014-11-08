@@ -24,10 +24,12 @@
         <td><%= artwork.price %></td>
         <td><%= artwork.dimensions %></td>
         <td><%= artwork.color %></td>
-        <td><%= pin.user.email if pin.user %></td>
+
         <td><%= link_to 'Show', artwork %></td>
-        <td><%= link_to 'Edit', edit_artwork_path(artwork) %></td>
-        <td><%= link_to 'Destroy', artwork, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if artwork.artist == current_artist %>
+          <td><%= link_to 'Edit', edit_artwork_path(artwork) %></td>
+          <td><%= link_to 'Destroy', artwork, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -35,4 +37,8 @@
 
 <br>
 
-<%= link_to 'New Artwork', new_artwork_path %>
+<% if artist_signed_in? %>
+  <%= link_to 'New Artwork', new_artwork_path %>
+<% end %>
+
+

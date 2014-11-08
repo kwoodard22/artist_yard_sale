@@ -1,6 +1,7 @@
 class ArtworksController < ApplicationController
   before_action :set_artwork, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_artist!, except: [:index, :show]
+  before_action :correct_artist, only: [:edit, :update, :destroy]
 
   # GET /artworks
   # GET /artworks.json
@@ -16,7 +17,7 @@ class ArtworksController < ApplicationController
   # GET /artworks/new
   def new
     # @artwork = Artwork.new
-    @artwork = current_user.artworks.build
+    @artwork = current_artist.artworks.build
   end
 
   # GET /artworks/1/edit
@@ -26,12 +27,12 @@ class ArtworksController < ApplicationController
   # POST /artworks
   # POST /artworks.json
   def create
-    @artwork = current_user.artworks.build(artwork_params)
+    @artwork = current_artist.artworks.build(artwork_params)
 
     respond_to do |format|
       if @artwork.save
         format.html { redirect_to @artwork, notice: 'Artwork was successfully created.' }
-        format.json { render :show, status: :created, location: @artwork }
+        format.json { render :show, status: :created, address: @artwork }
       else
         format.html { render :new }
         format.json { render json: @artwork.errors, status: :unprocessable_entity }
@@ -45,7 +46,7 @@ class ArtworksController < ApplicationController
     respond_to do |format|
       if @artwork.update(artwork_params)
         format.html { redirect_to @artwork, notice: 'Artwork was successfully updated.' }
-        format.json { render :show, status: :ok, location: @artwork }
+        format.json { render :show, status: :ok, address: @artwork }
       else
         format.html { render :edit }
         format.json { render json: @artwork.errors, status: :unprocessable_entity }
@@ -69,8 +70,8 @@ class ArtworksController < ApplicationController
       @artwork = Artwork.find(params[:id])
     end
 
-    def correct_user
-      @pin = current_user.artworks.find_by(id: params[:id])
+    def correct_artist
+      @pin = current_artist.artworks.find_by(id: params[:id])
       redirect_to artworks_path, notice: "Not authorized to edit this artwork" if @artwork.nil?
     end
 

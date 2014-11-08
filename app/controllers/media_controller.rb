@@ -29,7 +29,7 @@ class MediaController < ApplicationController
     respond_to do |format|
       if @medium.save
         format.html { redirect_to @medium, notice: 'Medium was successfully created.' }
-        format.json { render :show, status: :created, location: @medium }
+        format.json { render :show, status: :created, address: @medium }
       else
         format.html { render :new }
         format.json { render json: @medium.errors, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class MediaController < ApplicationController
     respond_to do |format|
       if @medium.update(medium_params)
         format.html { redirect_to @medium, notice: 'Medium was successfully updated.' }
-        format.json { render :show, status: :ok, location: @medium }
+        format.json { render :show, status: :ok, address: @medium }
       else
         format.html { render :edit }
         format.json { render json: @medium.errors, status: :unprocessable_entity }
