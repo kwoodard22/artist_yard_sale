@@ -6,12 +6,10 @@ class MediaController < ApplicationController
   end
 
   def show
-    respond_with(@medium)
   end
 
   def new
     @medium = Medium.new
-    respond_with(@medium)
   end
 
   def edit
@@ -19,18 +17,36 @@ class MediaController < ApplicationController
 
   def create
     @medium = Medium.new(medium_params)
-    @medium.save
-    respond_with(@medium)
+
+    respond_to do |format|
+      if @medium.save
+        format.html { redirect_to @medium, notice: 'Medium was successfully created.' }
+        format.json { render :show, status: :created, location: @medium }
+      else
+        format.html { render :new }
+        format.json { render json: @medium.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update
-    @medium.update(medium_params)
-    respond_with(@medium)
+    respond_to do |format|
+      if @medium.update(medium_params)
+        format.html { redirect_to @medium, notice: 'Medium was successfully updated.' }
+        format.json { render :show, status: :ok, location: @medium }
+      else
+        format.html { render :edit }
+        format.json { render json: @medium.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
     @medium.destroy
-    respond_with(@medium)
+    respond_to do |format|
+      format.html { redirect_to media_url, notice: 'Medium was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
