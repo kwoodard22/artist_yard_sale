@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @artwork.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @artwork.description %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= @artwork.photo %>
+</p>
+
+<p>
+  <strong>Pickup only:</strong>
+  <%= @artwork.pickup_only %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @artwork.price %>
+</p>
+
+<p>
+  <strong>Dimensions:</strong>
+  <%= @artwork.dimensions %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @artwork.color %>
+</p>
+
+<%= link_to 'Edit', edit_artwork_path(@artwork) %> |
+<%= link_to 'Back', artworks_path %>
