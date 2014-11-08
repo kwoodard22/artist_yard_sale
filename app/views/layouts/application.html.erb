@@ -7,12 +7,37 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if current_artist %>
-    <%= link_to("Sign Out", destroy_artist_session_path, :method => :delete) %>
-  <% else %>
-    <%= link_to("Sign In", new_artist_session_path) %>
-    <%= link_to("Sign Up", new_artist_registration_path) %>
-  <% end %>
+
+  <header class="navbar navbar-default" id='header'>
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a id="logoHeader"class="navbar-brand" href="/">
+          <img alt="Logo" src="assets/AYS-logo.png" class="logo" />
+          
+        </a>
+      </div>   
+        <ul id="navLinks" class="nav navbar-nav navbar-right">
+          <li class="nav-item"><a href="/artworks/index">HOME</a></li>
+          <li class="nav-item">|</li>
+
+          <li class="nav-item"><a href="/artworks/index"> SHOP</a></li>
+          <li class="nav-item">|</li>
+
+          <li class="nav-item"><a href="/artworks/index"> HOW IT WORKS</a></li>
+          <li class="nav-item">|</li>
+          <% if current_artist %>
+            <%= link_to("SIGN OUT", destroy_artist_session_path, :method => :delete) %>
+          <% else %>
+            <li class="nav-item"><a href="/artists/sign_in">LOG IN</a></li>
+            <!-- <li><a href="/users/sign_in">Sign Up</a></li> -->
+          <% end %>
+        </ul>
+    </div>
+  </header>
+  <div class="signup-notice">
+    <p>Are you an artist needing more space for new art? Sell your old stuff at Artist Yard Sale!</p>
+  </div>
+
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
