@@ -1,3 +1,7 @@
+<% if artist_signed_in? %>
+  <h5> <strong><p> Hi, <%= current_artist.email %>. </p></strong></h5>
+<% end %>
+
 <h1>Listing artworks</h1>
 
 <table>
@@ -24,9 +28,12 @@
         <td><%= artwork.price %></td>
         <td><%= artwork.dimensions %></td>
         <td><%= artwork.color %></td>
+
         <td><%= link_to 'Show', artwork %></td>
-        <td><%= link_to 'Edit', edit_artwork_path(artwork) %></td>
-        <td><%= link_to 'Destroy', artwork, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if artwork.artist == current_artist %>
+          <td><%= link_to 'Edit', edit_artwork_path(artwork) %></td>
+          <td><%= link_to 'Destroy', artwork, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +41,8 @@
 
 <br>
 
-<%= link_to 'New Artwork', new_artwork_path %>
+<% if artist_signed_in? %>
+  <%= link_to 'New Artwork', new_artwork_path %>
+<% end %>
+
+

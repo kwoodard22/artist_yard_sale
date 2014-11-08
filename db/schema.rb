@@ -62,11 +62,11 @@ ActiveRecord::Schema.define(version: 20141108193359) do
   add_index "artworks", ["artist_id"], name: "index_artworks_on_artist_id", using: :btree
 
   create_table "media", force: true do |t|
-    t.string   "type"
     t.integer  "artwork_id"
     t.integer  "supply_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "medium"
   end
 
   add_index "media", ["artwork_id"], name: "index_media_on_artwork_id", using: :btree

@@ -7,4 +7,7 @@ class Artist < ActiveRecord::Base
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
   has_many :artworks
   has_many :supplies
+  validates :email, presence: true
+  validates :password, presence: true
+
 end
