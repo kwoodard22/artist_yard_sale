@@ -1,7 +1,8 @@
-Hi, <%= @artwork.artist.email if @artwork.artist %>
+<div class="container">
 
-<p id="notice"><%= notice %></p>
-
+<div class="row">
+      <div class="col-xs-4 col-xs-offset-4">
+         <div class="container_dashboard">
 <p>
   <strong>Title:</strong>
   <%= @artwork.title %>
@@ -14,7 +15,7 @@ Hi, <%= @artwork.artist.email if @artwork.artist %>
 
 <p>
   <strong>Photo:</strong>
-  <%= @artwork.photo %>
+  <%= image_tag @artwork.photo.url %>
 </p>
 
 <p>
@@ -41,3 +42,6 @@ Hi, <%= @artwork.artist.email if @artwork.artist %>
 <%= link_to 'Edit', edit_artwork_path(@artwork) %>
 <% end %>|
 <%= link_to 'Back', artworks_path %>
+</div>
+
+</div>

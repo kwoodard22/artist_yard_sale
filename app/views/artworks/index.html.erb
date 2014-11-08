@@ -1,15 +1,16 @@
-<% if artist_signed_in? %>
-  <h5> <strong><p> Hi, <%= current_artist.email %>. </p></strong></h5>
-<% end %>
+<div class="container">
 
-<h1>Listing artworks</h1>
+<div class="row">
+  <div class="col-md-12">
+    <img alt="Logo" src="assets/carousel.png" class="carousel" />
+  </div>
+</div>
 
 <table>
   <thead>
     <tr>
       <th>Title</th>
       <th>Description</th>
-      <th>Photo</th>
       <th>Pickup only</th>
       <th>Price</th>
       <th>Dimensions</th>
@@ -23,7 +24,6 @@
       <tr>
         <td><%= artwork.title %></td>
         <td><%= artwork.description %></td>
-        <td><%= artwork.photo %></td>
         <td><%= artwork.pickup_only %></td>
         <td><%= artwork.price %></td>
         <td><%= artwork.dimensions %></td>
@@ -41,6 +41,11 @@
 
 <br>
 
+<%= link_to 'New Artwork', new_artwork_path %>
+
+</div>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="/assets/masonry.pkgd.min.js"></script>
 <% if artist_signed_in? %>
   <%= link_to 'New Artwork', new_artwork_path %>
 <% end %>
