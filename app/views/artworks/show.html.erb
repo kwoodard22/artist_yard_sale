@@ -14,7 +14,7 @@ Hi, <%= @artwork.artist.email if @artwork.artist %>
 
 <p>
   <strong>Photo:</strong>
-  <%= @artwork.photo %>
+  <%= image_tag @artwork.photo.url %>
 </p>
 
 <p>
