@@ -24,6 +24,7 @@
         <td><%= artwork.price %></td>
         <td><%= artwork.dimensions %></td>
         <td><%= artwork.color %></td>
+        <td><%= pin.user.email if pin.user %></td>
         <td><%= link_to 'Show', artwork %></td>
         <td><%= link_to 'Edit', edit_artwork_path(artwork) %></td>
         <td><%= link_to 'Destroy', artwork, method: :delete, data: { confirm: 'Are you sure?' } %></td>

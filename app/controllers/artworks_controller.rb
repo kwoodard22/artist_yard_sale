@@ -1,5 +1,6 @@
 class ArtworksController < ApplicationController
   before_action :set_artwork, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_artist!, except: [:index, :show]
 
   # GET /artworks
   # GET /artworks.json
@@ -14,7 +15,8 @@ class ArtworksController < ApplicationController
 
   # GET /artworks/new
   def new
-    @artwork = Artwork.new
+    # @artwork = Artwork.new
+    @artwork = current_user.artworks.build
   end
 
   # GET /artworks/1/edit
@@ -24,7 +26,7 @@ class ArtworksController < ApplicationController
   # POST /artworks
   # POST /artworks.json
   def create
-    @artwork = Artwork.new(artwork_params)
+    @artwork = current_user.artworks.build(artwork_params)
 
     respond_to do |format|
       if @artwork.save
@@ -65,6 +67,11 @@ class ArtworksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_artwork
       @artwork = Artwork.find(params[:id])
+    end
+
+    def correct_user
+      @pin = current_user.artworks.find_by(id: params[:id])
+      redirect_to artworks_path, notice: "Not authorized to edit this artwork" if @artwork.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
