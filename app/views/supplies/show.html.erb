@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @supply.title %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @supply.color %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @supply.price %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @supply.description %>
+</p>
+
+<p>
+  <strong>Condition:</strong>
+  <%= @supply.condition %>
+</p>
+
+<%= link_to 'Edit', edit_supply_path(@supply) %> |
+<%= link_to 'Back', supplies_path %>
