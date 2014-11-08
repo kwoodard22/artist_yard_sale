@@ -37,6 +37,7 @@ ul {
   margin-top: .6em;
   font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
   font-size: 20pt;
+  width: 50%;
 }
 
 .navbar-nav > li > a {
@@ -68,16 +69,22 @@ ul {
 
 .signup-notice {
   width: 100%;
-  height: 10%;
-  float: center;
   background: #e4dbcb;
   color: #be202e;
+  text-align: center;
+  padding: 20px;
+}
+
+.signup-notice p {
+  font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue" !important;
+  font-size: 20pt !important;
 }
 
 .carousel {
-  max-height: 200px;
-  max-width: 400px
-}
+  max-height: 600px;
+  max-width: 1200px;
+  position: relative;
+  }
 
 .item { width: 25%; }
 .item.w2 { width: 50%; }
@@ -98,6 +105,10 @@ ul {
     text-decoration: none;
     line-height: 50px;
   }
+}
+
+.btn .btn-primary {
+  color: white;
 }
 
 /*.signup_box {
