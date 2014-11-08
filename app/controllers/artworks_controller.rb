@@ -3,29 +3,21 @@ class ArtworksController < ApplicationController
   before_action :authenticate_artist!, except: [:index, :show]
   before_action :correct_artist, only: [:edit, :update, :destroy]
 
-  # GET /artworks
-  # GET /artworks.json
   def index
     @artworks = Artwork.all
   end
 
-  # GET /artworks/1
-  # GET /artworks/1.json
   def show
   end
 
-  # GET /artworks/new
   def new
     # @artwork = Artwork.new
     @artwork = current_artist.artworks.build
   end
 
-  # GET /artworks/1/edit
   def edit
   end
 
-  # POST /artworks
-  # POST /artworks.json
   def create
     @artwork = current_artist.artworks.build(artwork_params)
 
@@ -40,8 +32,6 @@ class ArtworksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /artworks/1
-  # PATCH/PUT /artworks/1.json
   def update
     respond_to do |format|
       if @artwork.update(artwork_params)
@@ -54,8 +44,6 @@ class ArtworksController < ApplicationController
     end
   end
 
-  # DELETE /artworks/1
-  # DELETE /artworks/1.json
   def destroy
     @artwork.destroy
     respond_to do |format|
@@ -65,7 +53,6 @@ class ArtworksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_artwork
       @artwork = Artwork.find(params[:id])
     end

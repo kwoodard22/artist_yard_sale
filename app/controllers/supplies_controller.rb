@@ -1,14 +1,10 @@
 class SuppliesController < ApplicationController
   before_action :set_supply, only: [:show, :edit, :update, :destroy]
 
-  # GET /supplies
-  # GET /supplies.json
   def index
     @supplies = Supply.all
   end
 
-  # GET /supplies/1
-  # GET /supplies/1.json
   def show
   end
 
