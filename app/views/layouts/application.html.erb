@@ -25,8 +25,8 @@
 
           <li class="nav-item"><a href="/artworks/index"> HOW IT WORKS</a></li>
           <li class="nav-item">|</li>
-          <% if current_artist %>
-            <%= link_to("SIGN OUT", destroy_artist_session_path, :method => :delete) %>
+          <% if current_artist %><li class="nav-item">
+            <%= link_to("SIGN OUT", destroy_artist_session_path, :method => :delete) %></li>
           <% else %>
             <li class="nav-item"><a href="/artists/sign_in">LOG IN</a></li>
             <!-- <li><a href="/users/sign_in">Sign Up</a></li> -->
@@ -36,13 +36,19 @@
   </header>
   <div class="signup-notice">
     <p>Are you an artist needing more space for new art? Sell your old stuff at Artist Yard Sale!</p>
+    <button type="button" class="btn btn-primary">
+    <% if artist_signed_in? %>
+      <%= link_to 'Add New Artwork', new_artwork_path %>
+    <% else %>
+      <%= link_to 'Sign Up Now', new_artist_registration_path %>
+    <% end %>
+    </button>
   </div>
 
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-<%= render "layouts/header" %>
 <%= yield %>
 
 </body>
