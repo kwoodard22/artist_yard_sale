@@ -1,3 +1,7 @@
+<% if artist_signed_in? %>
+  <h5> <strong><p> Hi, <%= current_artist.email %>. </p></strong></h5>
+<% end %>
+
 <h1>Listing artworks</h1>
 
 <table>

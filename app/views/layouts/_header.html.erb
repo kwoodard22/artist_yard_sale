@@ -1,0 +1,8 @@
+<li><%= link_to "Home", root_path %></li>
+
+  <% if artist_signed_in? %>
+              <li><%= link_to "Log out", destroy_artist_session_path, method: :delete %></li>
+  <% else %>
+              <li><%= link_to "Sign in", new_artist_session_path %></li>
+              <li><%= link_to 'Sign up', new_artist_registration_path %></li>
+<% end %>
