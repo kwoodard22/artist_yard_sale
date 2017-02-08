@@ -1,3 +1,5 @@
+This is a 15 hour Hackathon project that friends and I started not long after starting our Web Development Immersive course at Genearl Assembly. 
+
 Artist Yard Sale
 
 Artist
